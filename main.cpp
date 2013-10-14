@@ -35,19 +35,6 @@ int main()
 			}
 		}
 
-		//Read d
-		/*std::cout << "Enter the number of coefficients (d): ";
-		while(d == 0)
-		{
-			std::cin >> d;
-			if( std::cin.fail() || n > d - 1 )
-			{
-				std::cout << "STOP WRITING NON-NUMBERS BAKA!\n";
-				std::cin.clear();
-				std::cin.ignore();
-				d = 0;
-			}
-		}*/
 
 		//Read coefficients
 		std::cout << "Enter " << n - 1 << " cofficients: ";
