@@ -8,7 +8,7 @@
 #include <vector>
 #include <cmath>
 
-std::vector<__int64> setVector( std::vector<int>, std::vector<int>, int );
+std::vector<__int64> setVector( std::vector<int>, std::vector<int>, int, int );
 
 int main()
 {
@@ -23,6 +23,8 @@ int main()
 
 		//Read n
 		std::cout << "Enter the number of values (n): ";
+		coefficients.clear();
+		initialValues.clear();
 		while(n == 0)
 		{
 			std::cin >> n;
@@ -35,10 +37,9 @@ int main()
 			}
 		}
 
-
 		//Read coefficients
-		std::cout << "Enter " << n - 1 << " cofficients: ";
-		for( int i = 0; i < n - 1; ++i )
+		std::cout << "Enter " << n << " cofficients: ";
+		for( int i = 0; i < n; ++i )
 		{
 			std::cin >> value;
 			if( std::cin.fail() )
@@ -87,7 +88,7 @@ int main()
 			}
 		}
 
-		setVector( coefficients, initialValues, n );
+		setVector( coefficients, initialValues, n, k );
 
 		std::cout << "\n\n\n";
 		/*std::cin.get();
@@ -100,7 +101,7 @@ int main()
 //////////////////
 //	FUNCTIONS	//
 //////////////////
-std::vector<__int64> setVector( std::vector<int> coefficients, std::vector<int> initialValues, int n )
+std::vector<__int64> setVector( std::vector<int> coefficients, std::vector<int> initialValues, int n, int k  )
 {
 	std::vector<__int64> returnValues;
 	for (std::vector<int>::iterator it = initialValues.begin(); it != initialValues.end(); it++)
@@ -114,7 +115,6 @@ std::vector<__int64> setVector( std::vector<int> coefficients, std::vector<int> 
 		an = 0;
 		/*for (int j = 0; j < 2; j++)
 		{
-			
 			an += coefficients[i + j - initialValues.size()] * returnValues[ returnValues.size() - (j + 1) ];
 			std::cout << coefficients[i + j - initialValues.size()] << " * " << returnValues[ returnValues.size() - (j + 1) ] << " = " << coefficients[i - returnValues.size() + j] * returnValues[ returnValues.size() - (j + 1) ] << " Total: " << an << "\n";
 		}*/
