@@ -1,8 +1,8 @@
 //////////////////////////////////////////////////////////
-//	Authors:											//
-//	Kim Wahlman			kim.wahlman@gmail.com			//
-//	Johannes Sinander	johannes.sinander@gmail.com		//
-//	Jacob Fogelberg										//
+//	Authors:                                            //
+//	Kim Wahlman         kim.wahlman@gmail.com           //
+//	Johannes Sinander   johannes.sinander@gmail.com     //
+//	Jacob Fogelberg                                     //
 //////////////////////////////////////////////////////////
 #include <iostream>
 #include <vector>
@@ -13,7 +13,7 @@ std::vector<__int64> setVector( std::vector<int>, std::vector<int>, int, int );
 int main()
 {
 	std::vector<int> coefficients, initialValues;
-	int n, k, d, value;
+	int n, k, value;
 
 	while ( true )
 	{
@@ -99,7 +99,7 @@ int main()
 }
 
 //////////////////
-//	FUNCTIONS	//
+//  FUNCTIONS   //
 //////////////////
 std::vector<__int64> setVector( std::vector<int> coefficients, std::vector<int> initialValues, int n, int k  )
 {
@@ -113,16 +113,12 @@ std::vector<__int64> setVector( std::vector<int> coefficients, std::vector<int> 
 	for (int i = returnValues.size(); i < n; i++)
 	{
 		an = 0;
-		/*for (int j = 0; j < 2; j++)
-		{
-			an += coefficients[i + j - initialValues.size()] * returnValues[ returnValues.size() - (j + 1) ];
-			std::cout << coefficients[i + j - initialValues.size()] << " * " << returnValues[ returnValues.size() - (j + 1) ] << " = " << coefficients[i - returnValues.size() + j] * returnValues[ returnValues.size() - (j + 1) ] << " Total: " << an << "\n";
-		}*/
-		for (int j = 0; j < returnValues.size(); j++)
+		for (std::vector<size_t>::size_type j = 0; j < returnValues.size(); j++)
 		{
 			
 			an += coefficients[j] * returnValues[ returnValues.size() - (j + 1) ];
-			std::cout << "\n" << coefficients[j] << " * " << returnValues[ returnValues.size() - (j + 1) ] << " = " << coefficients[i - returnValues.size() + j] * returnValues[ returnValues.size() - (j + 1) ] << " Total: " << an;
+			std::cout << coefficients[j] << " * " << returnValues[ returnValues.size() - (j + 1) ] << " = " << coefficients[i - returnValues.size() + j] * returnValues[ returnValues.size() - (j + 1) ] << " Total: " << an;
+			//std::cout << "\nj(" << j << "), j+1 (" << j+1 << ") " << coefficients[j] << " * " << returnValues[ returnValues.size() - (j + 1) ] << " = " << coefficients[i - returnValues.size() + j] * returnValues[ returnValues.size() - (j + 1) ] << " Total: " << an;
 		}
 		std::cout << "\n\n";
 		returnValues.push_back( an );
