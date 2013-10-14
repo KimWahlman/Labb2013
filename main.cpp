@@ -91,8 +91,6 @@ int main()
 		setVector( coefficients, initialValues, n, k );
 
 		std::cout << "\n\n\n";
-		/*std::cin.get();
-		std::cin.get();*/
 	}
 
 	return 0;
@@ -115,10 +113,8 @@ std::vector<__int64> setVector( std::vector<int> coefficients, std::vector<int> 
 		an = 0;
 		for (std::vector<size_t>::size_type j = 0; j < returnValues.size(); j++)
 		{
-			
 			an += coefficients[j] * returnValues[ returnValues.size() - (j + 1) ];
 			std::cout << coefficients[j] << " * " << returnValues[ returnValues.size() - (j + 1) ] << " = " << coefficients[i - returnValues.size() + j] * returnValues[ returnValues.size() - (j + 1) ] << " Total: " << an;
-			//std::cout << "\nj(" << j << "), j+1 (" << j+1 << ") " << coefficients[j] << " * " << returnValues[ returnValues.size() - (j + 1) ] << " = " << coefficients[i - returnValues.size() + j] * returnValues[ returnValues.size() - (j + 1) ] << " Total: " << an;
 		}
 		std::cout << "\n\n";
 		returnValues.push_back( an );
